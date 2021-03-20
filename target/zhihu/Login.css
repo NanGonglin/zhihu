@@ -1,0 +1,190 @@
+.body1 {
+    background: url(https://static.zhihu.com/heifetz/assets/sign_bg.db29b0fb.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
+    mix-blend-mode: normal;
+}
+
+.fix {
+    width: 1000px;
+    height: 800px;
+    background: #75defe;
+}
+
+.logo {
+    width: 128px;
+    height: 81px;
+    position: fixed;
+    left: 48%;
+    top: 10%;
+}
+
+.canvas {
+    width: 400px;
+    height: 376px;
+    background: white;
+    position: fixed;
+    top: 24%;
+    left: 40%;
+    border-radius: 5px;
+}
+
+form {
+    font-size: 18px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    font-family: myFirstFont;
+    font-weight: 100;
+}
+
+.footer {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 20px;
+    position: absolute;
+    top: 90%;
+    left: 42%;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    background-color: #fff;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    padding-left: 1.5em;
+    width: 26.5em;
+    height: 2.8em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    outline: none;
+}
+
+input[type="password"] {
+    background-color: #fff;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    padding-left: 1.5em;
+    width: 26.5em;
+    height: 2.8em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    outline: none;
+}
+
+input[type="submit"] {
+    color: #fff;
+    font-weight: 400;
+    font-size: .86em;
+    width: 23em;
+    height: 2.3em;
+    background: #0066ff;
+    border-radius: 5px;
+    border-color: #fff;
+    cursor: pointer;
+}
+
+button {
+    border: 1px;
+    cursor: pointer;
+    background: white;
+    padding-left: 20em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    outline: none;
+    color: rgb(133 144 166);
+}
+
+.top {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    border-bottom: 3px;
+
+}
+
+.bottom {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    color: #838a90;
+    font-size: 14px;
+}
+.ajax{
+    margin-top: 20px;
+    background: #0066ff;
+    outline: none;
+    border-color: #fff;
+    color:#fff;
+    border-radius: 5px;
+}
+.card{
+    width: 1000px;
+    height: 277px;
+    background: #dedede;
+    border-radius: 5px;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+.dog{
+    width:160px;
+    height:160px;
+    margin-left:50px;
+    margin-top: 50px;
+    z-index: -1;
+}
+.username{
+    position: absolute;
+    top: 25px;
+    left:0px;
+    font-size: medium;
+}
+.describe{
+    position: absolute;
+    top: 25px;
+    left:0px;
+    font-size: medium;
+    width: 400px;
+}
+.nickname{
+    position: absolute;
+    top: 25px;
+    left:0px;
+    font-size: medium;
+    width: 100px;
+}
+.logout{
+    position: absolute;
+    top: 330px;
+    left: 980px;
+    color: #fafafa;
+    background: #0066ff;
+    border-radius: 5px;
+    border-color: #fff;
+    cursor: pointer;
+}
+.field1{
+    position: absolute;
+    top: 180px;
+    left: 431px;
+    font-size: large;
+}
+.field2{
+    position: absolute;
+    top: 180px;
+    left: 750px;
+    font-size: large;
+    width: 100px;
+}
+.field3{
+    position: absolute;
+    top: 250px;
+    left: 431px;
+    font-size: large;
+}

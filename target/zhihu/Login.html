@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html style="background:#a9d6f0">
+	<head>
+		<meta charset="utf-8">
+		<title>知乎登录界面</title>		
+		<link rel="stylesheet" type="text/css" href="Login.css">
+		<script src="Login.js" ></script>
+	</head>
+	<body class=body1>
+		<img src="https://pic2.zhimg.com/80/v2-f6b1f64a098b891b4ea1e3104b5b71f6_720w.png" width="128" height="81" class=logo position="absolute"/>
+		<div id="myCanvas" width="300" height="150"  class=canvas >
+			<div class=top>
+				<span>密码登录</span>
+			</div>
+			<form id="Login" >			
+				<div>
+					<div>
+						<input id="tips" type="text" name="username" placeholder="请输入用户名" onmouseover="overtips('用户名长度应该为3-16位')" onmouseout="outtips()"></input>
+					</div>
+					<div>
+						<input id="tips" type="password" name="password" placeholder="请输入密码" style="color: rgb(133 144 166)" onmouseover="overtips('密码长度应该为3-16位')" onmouseout="outtips()"></input>
+					</div>	
+					<div>
+						<button type="button">忘记密码？</button>
+					</div>
+					<div align="center" >
+						<input type="submit" name="submit"></input>
+					</div>					
+				</div>
+			</form>	
+			<div class=bottom>未注册手机验证后自动登录，注册即代表同意《知乎协议》《隐私保护指引》</div>
+		</div>
+		<footer class=footer>
+			<a >知乎专栏</a>
+			<a>圆桌</a>
+			<a>发现</a>
+			<a>移动应用</a>
+			<a>联系我们</a>
+			<a>注册机构号</a>
+			
+		</footer>
+	</body>
+</html>
