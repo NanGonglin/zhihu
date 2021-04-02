@@ -41,6 +41,13 @@
       <artifactId>httpclient</artifactId>
       <version>4.5.11</version>
     </dependency>
+    <!--添加servlet库的依赖-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
 
     <!--添加接口测试输入输出文件上传库的依赖-->
     <dependency>
