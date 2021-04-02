@@ -30,44 +30,55 @@ public class Login extends javax.servlet.http.HttpServlet {
         String user = request.getParameter("username");
         String pwd = request.getParameter("password");
 
-        HttpSession session=request.getSession();
+        HttpSession session = request.getSession();
         session.setMaxInactiveInterval(30);
 
-        Cookie[] cookies=request.getCookies();
-        String sessionid=session.getId();
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                System.out.println("cookie的键是" + cookie.getName() + "cookie的值是" + cookie.getValue());
 
-        if (user != null && user.length() > 0 && pwd != null && pwd.length() > 0) {
-            if (user.length() > 1 && user.length() < 17 && pwd.length() > 1 && pwd.length() < 17) {
+            }
+        }
+        String sessionid = session.getId();
+        System.out.println("sessionid的值是" + sessionid);
+        if (session.getAttribute("loginName") != null) {
+            response.getWriter().append("{\"status\":-6,\"msg\":\"" + "已有用户登录，不能重复登录。" + "\"}");
+            return;
+        } else {
+            if (user != null && user.length() > 0 && pwd != null && pwd.length() > 0) {
+                if (user.length() > 1 && user.length() < 17 && pwd.length() > 1 && pwd.length() < 17) {
 
-                Pattern specialword = Pattern.compile("[^A-Za-z0-9_\\-\\u4e00-\\u9fa5\\w-_]");
-                Matcher specialuser = specialword.matcher(user);
-                Matcher specialpwd = specialword.matcher(pwd);
-                if (!specialuser.find() && !specialpwd.find()) {
-                    MysqlUtils symysql = new MysqlUtils();
-                    try {
-                        symysql.creatconnect();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        response.getWriter().append("数据库连接失败");
-                    }
-                    if (symysql.prochecklogin(user, pwd)) {
+                    Pattern specialword = Pattern.compile("[^A-Za-z0-9_\\-\\u4e00-\\u9fa5\\w-_]");
+                    Matcher specialuser = specialword.matcher(user);
+                    Matcher specialpwd = specialword.matcher(pwd);
+                    if (!specialuser.find() && !specialpwd.find()) {
+                        MysqlUtils symysql = new MysqlUtils();
+                        try {
+                            symysql.creatconnect();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            response.getWriter().append("数据库连接失败");
+                        }
+                        if (symysql.prochecklogin(user, pwd)) {
 //                if("Roy".equals(user)&&"123456".equals(pwd)){
-                        response.getWriter().append("{\"status\":0,\"msg\":\"恭喜您，登录成功\"}");
-                        session.setAttribute("loginName", user);
-                        Cookie sessioncookie=new Cookie("JSESSIONID",sessionid );
-                        sessioncookie.setMaxAge(30);
-                        response.addCookie(sessioncookie);
+                            response.getWriter().append("{\"status\":0,\"msg\":\"恭喜您，登录成功\"}");
+                            session.setAttribute("loginName", user);
+                            Cookie sessioncookie = new Cookie("JSESSIONID", sessionid);
+                            sessioncookie.setMaxAge(30);
+                            response.addCookie(sessioncookie);
+                        } else {
+                            response.getWriter().append("{\"status\":0,\"msg\":\"用户名或密码错误\"}");
+                        }
                     } else {
-                        response.getWriter().append("{\"status\":0,\"msg\":\"用户名或密码错误\"}");
+                        response.getWriter().append("{\"status\":0,\"msg\":\"用户名密码不能包含特殊字符\"}");
                     }
                 } else {
-                    response.getWriter().append("{\"status\":0,\"msg\":\"用户名密码不能包含特殊字符\"}");
+                    response.getWriter().append("{\"status\":0,\"msg\":\"用户名密码长度需要为3-16位\"}");
                 }
             } else {
-                response.getWriter().append("{\"status\":0,\"msg\":\"用户名密码长度需要为3-16位\"}");
+                response.getWriter().append("{\"status\":0,\"msg\":\"用户名密码不能为空\"}");
             }
-        } else {
-            response.getWriter().append("{\"status\":0,\"msg\":\"用户名密码不能为空\"}");
         }
     }
 
@@ -79,11 +90,11 @@ public class Login extends javax.servlet.http.HttpServlet {
         String user = request.getParameter("username");
         String pwd = request.getParameter("password");
 
-        HttpSession session=request.getSession();
+        HttpSession session = request.getSession();
         session.setMaxInactiveInterval(30);
 
-        Cookie[] cookies=request.getCookies();
-        String sessionid=session.getId();
+        Cookie[] cookies = request.getCookies();
+        String sessionid = session.getId();
 
         if (user != null && user.length() > 0 && pwd != null && pwd.length() > 0) {
             if (user.length() > 1 && user.length() < 17 && pwd.length() > 1 && pwd.length() < 17) {
@@ -103,7 +114,7 @@ public class Login extends javax.servlet.http.HttpServlet {
 //                if("Roy".equals(user)&&"123456".equals(pwd)){
                         response.getWriter().append("{\"status\":0,\"msg\":\"恭喜您，登录成功\"}");
                         session.setAttribute("loginName", user);
-                        Cookie sessioncookie=new Cookie("JSESSIONID",sessionid );
+                        Cookie sessioncookie = new Cookie("JSESSIONID", sessionid);
                         sessioncookie.setMaxAge(30);
                         response.addCookie(sessioncookie);
                     } else {
